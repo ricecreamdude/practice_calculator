@@ -26,7 +26,7 @@ a {
   margin: 20px 0px 40px 0px;
 }
 
-#bigRow{
+#inputWrapper{
   float: left;
   width: 100%;
   height: 320px;
@@ -40,13 +40,13 @@ a {
     .numRow{
       height: 25%;
     }
-    .numButton{
+    .numLayout{
       width: 33.33%;
       height: 100%;
       float: left;
       margin: 0px;
     }
-    .numButton button{
+    .numButton{
       width: 100%;
       height: 100%;
       float: left;
