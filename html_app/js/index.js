@@ -28,27 +28,27 @@ $(
 
     //Can also access innerText of event target
     const key = event.target;
-    const action = key.dataset.action
-    const text = key.innerText
+    const action = key.dataset.action;
+    const text = key.innerText;
 
     if ( event.target.matches('button') ){
       if (!action) {
         inputNumber(text);
+      }
+      if (action === 'delete'){
+        backspace();
       }
       if (
         action === 'add' ||
         action === 'subtract' ||
         action === 'multiply' ||
         action === 'divide' ||
-        action === 'delete' ||
         action === 'equals' ||
-        action === 'decimal'
-      ) {console.log('operator key!')}
+        action === 'decimal') {
+        console.log('operator key!')
+      }
     }
   })
-
-
-
 )
 
 
@@ -56,6 +56,22 @@ $(
 const inputNumber = function(num){
   if ($('#display')[0].innerText == 0) $('#display')[0].innerText = num
   else $('#display')[0].innerText += num;
+}
+
+
+/*
+    TO DO
+    1. If the value after the popped value is a decimal, remove that shit
+*/
+
+const backspace = function(){
+  if ( $('#display')[0].innerText !== 0 ){
+
+    let arr = $('#display')[0].innerText.split("")
+
+    arr.pop();
+    $('#display')[0].innerText = arr.join("");
+  }
 }
 
     // console.log("key",key);
