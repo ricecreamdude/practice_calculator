@@ -31,6 +31,7 @@ $(
     const action = key.dataset.action;
     const text = key.innerText;
 
+
     if ( event.target.matches('button') ){
       if (!action) {
         inputNumber(text);
@@ -38,8 +39,15 @@ $(
       if (action === 'delete'){
         backspace();
       }
+
+      if (action === 'decimal'){
+        inputDecimal();
+      }
+
+      if (action === 'add'){
+
+      }
       if (
-        action === 'add' ||
         action === 'subtract' ||
         action === 'multiply' ||
         action === 'divide' ||
@@ -57,12 +65,16 @@ const inputNumber = function(num){
   if ($('#display')[0].innerText == 0) $('#display')[0].innerText = num
   else $('#display')[0].innerText += num;
 }
-
-
 /*
     TO DO
     1. If the value after the popped value is a decimal, remove that shit
 */
+const inputDecimal = function(){
+  if ( $('#display')[0].innerText.indexOf(".") < 0 ) {
+    console.log('Oh hai mark')
+    $('#display')[0].innerText += "."
+  }
+}
 
 const backspace = function(){
   if ( $('#display')[0].innerText !== 0 ){
@@ -74,6 +86,12 @@ const backspace = function(){
   }
 }
 
+// const add = function(){
+//
+//   let num = $('#display')[0].innerText
+//
+//   if()
+// }
     // console.log("key",key);
     // console.log("action:", action);
     // console.log("e:", event)
